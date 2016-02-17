@@ -1,15 +1,18 @@
-Widget para encuestas Alloy android-ios
+#Widget para encuestas Alloy android-ios
 =======================================
  sdk minimo 5.0.0
 
 Este widget permite añadir una vista para mostar encuestas dentro de la aplicacion.
 Permite cargar encuestas mediate formato json.
-Permitiendo visualizar 3 tipos de preguntas : Abiertas, opcion multiple, y rangos.
+Permitiendo visualizar 3 tipos de preguntas :
+* Abiertas, 
+* opcion multiple,
+* rangos (unsando un control slider).
 
 Tipos de preguntas:
--caracter abierto - mediante textfield ('open')
--caracter multiple- varias opciones ('mult')
--caracter rango- uso de slider ('slider')
+* caracter abierto - mediante textfield ('open')
+* caracter multiple- varias opciones ('mult')
+* caracter rango- uso de slider ('slider')
 
 Estructura del json para la encuesta:
 (ver ejemplo (app/controllers/widget.js)).
@@ -26,7 +29,7 @@ json=[{"tituloEnc":"Mi encuesta", //titulo de la encuesta
 }];
 ```
 ____________________________________________________________________________
-//USO del WIDGET
+##USO del WIDGET
 
 Copiar la carpeta Widgets, en la carpeta "app" del proyecto o copiar el contenido 
 en la carpeta widgets del proyecto si esta ya esta creada.
@@ -38,7 +41,7 @@ Modificar el archivo config.json del proyecto y añadir el widget al apartado "d
 	}
 ```
 ______________________________________________________________________________	
-//EJEMPLO DE USO
+##EJEMPLO DE USO
 
 Probar widget, el uso de este widget esta pensado para mostar la encuesta como si se tratase
 de un popup , enmbedido en un view de la ventana actual
@@ -89,7 +92,7 @@ $.button.addEventListener('click',function()
 }
 ```
 _____________________________________________________________________________
-//CONSULTAR RESULTADOS DE LA ENCUESTA
+##CONSULTAR RESULTADOS DE LA ENCUESTA
 el widget almacena los resultado mediante una variable global 
 para consultar los resultados de las respuestas se debe hacer referencia a:
 ```
@@ -103,10 +106,10 @@ esta variable almacena un array con las respuestas del usuario según la longitu
 
 ______________________________________________________________________________
 
-//REMOVER LA VISTA Y EL WIDGET DE LA ENCUESTA
+##REMOVER LA VISTA Y EL WIDGET DE LA ENCUESTA
 
-//para remover el widget de la encuesta y obtener las repuestas
-//el widget usa el el evento 'end_enc' para indicar que la encuesta se termino
+Para remover el widget de la encuesta y obtener las repuestas
+el widget usa el el evento 'end_enc' para indicar que la encuesta se termino
 
 ```
 Ti.App.addEventListener('end_enc',function(){
@@ -123,9 +126,9 @@ Ti.App.addEventListener('end_enc',function(){
 });
 ```
 ________________________________________________________________________________
-//CANCELAR LA ENCUESTA
+##CANCELAR LA ENCUESTA
 
-//evento de cancelación de la encuesta se da al presionar el boton “cancel” del widget.
+Evento de cancelación de la encuesta se da al presionar el boton “cancel” del widget.
 //mediante este evento puede usarse para remover el widget al ser cancelada la encuesta
 ```
 Ti.App.addEventListener('cancel_enc',function(){
