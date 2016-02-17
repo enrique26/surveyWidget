@@ -1,6 +1,6 @@
 #Widget para encuestas Alloy android-ios
 =======================================
- sdk minimo 5.0.0
+ sdk titanium minimo 5.0.0
 
 Este widget permite añadir una vista para mostar encuestas dentro de la aplicacion.
 Permite cargar encuestas mediate formato json.
@@ -40,6 +40,35 @@ Modificar el archivo config.json del proyecto y añadir el widget al apartado "d
 		"com.negoapps.chsurvey": "1.0"
 	}
 ```
+_______
+##Cambiar los colores de la cabecera, boton y footer del widget.
+
+Para cambiar el color a la cabecera, boton y footer de progreso de la encuesta del contenedor 
+de la encuesta se pueden pasar los siguietnes parametros al crear el widget
+	* "colorHead"-cambia el color de la cabecera que contiene el titulo de la encuesta
+	* "colorBackProgress"- cambia el color de la parte inferior de la ventana que contiene la encuesta
+	* "btBackColor"- cambia el color del boton de avance de la encuesta
+
+ejemplo de uso
+```
+	widget = Alloy.createWidget('com.negoapps.chsurvey', 'widget’,{
+		“colorHead":"#225522",
+		"colorBackProgress":"#225522",
+		"btBackColor":"#225522"}); 
+```
+si los parametros para el widget estan en blanco, cada elmento colocara su valor por defecto
+____
+##Personalizar alerta de termino de encuesta
+Para  personalizar mensaje de alerta mostrado al terminar la encuesta se usa la funcion 'alertaPers()''
+la función "alertaPers" espera 3 cadenas como parametros 'titulo','mensaje','texto boton ok'
+si se invoca esta funcion sin parametros se definen valores por defecto para el mensaje
+si esta función no se define , la alerta mostrara los valores que tiene por defecto
+Ejemplo:
+````
+widget.alertaPers('TItulo pers','mensaje pers','boton ok pers');
+```
+
+Si 'alertaPers()' no se define, la alerta msotrara un mensaje por defecto
 ______________________________________________________________________________	
 ##EJEMPLO DE USO
 
@@ -62,17 +91,6 @@ $.button.addEventListener('click',function()
 	});
 	
 	//Llamar al controlador principal del widget
-	//para cambiar el color a la cabecera, boton y footer de progreso de la encuesta
-	// del contenedor de la encuesta se pueden pasar los siguietnes parametros al crear el widget
-	//"colorHead"-cambia el color de la cabecera que contiene el titulo de la encuesta
-	//"colorBackProgress"- cambia el color de la parte inferior de la ventana que contiene la encuesta
-	//"btBackColor"- cambia el color del boton de avance de la encuesta
-	//ejemplo de uso
-	widget = Alloy.createWidget('com.negoapps.chsurvey', 'widget’,{
-		“colorHead":"#225522",
-		"colorBackProgress":"#225522",
-		"btBackColor":"#225522"}); 
-	
 	widget = Alloy.createWidget('com.negoapps.chsurvey', 'widget',{});
 	
 	//cargar el json de la encuesta, llamando la funcion "abrirEncuesta" del widget
@@ -82,7 +100,7 @@ $.button.addEventListener('click',function()
 	//la función "alertaPers" espera 3 cadenas como parametros 'titulo','mensaje','texto boton ok'
 	//si se invoca esta funcion sin parametros se definen valores por defecto para el mensaje
 	//si esta función no se define , la alerta mostrara los valores que tiene por defecto
-	widget.alertaPers('Encuesta #','Termino la encuesta','Cerrar');
+	//widget.alertaPers('Encuesta #','Termino la encuesta','Cerrar');
 	
 	//añadir el widget a la vista que lo contendra y mostrarlo
 	Epop.add(widget.getView());
@@ -91,6 +109,7 @@ $.button.addEventListener('click',function()
 	$.index.add(Epop);});
 }
 ```
+
 _____________________________________________________________________________
 ##CONSULTAR RESULTADOS DE LA ENCUESTA
 el widget almacena los resultado mediante una variable global 
@@ -108,8 +127,8 @@ ______________________________________________________________________________
 
 ##REMOVER LA VISTA Y EL WIDGET DE LA ENCUESTA
 
-Para remover el widget de la encuesta y obtener las repuestas
-el widget usa el el evento 'end_enc' para indicar que la encuesta se termino
+Para remover el widget de la encuesta el widget dispara 'end_enc' para indicar que la encuesta se termino.
+al termianr la encuesta se muestra un alert con un mensaje indicando que la encuesta termino con exito
 
 ```
 Ti.App.addEventListener('end_enc',function(){
@@ -128,8 +147,8 @@ Ti.App.addEventListener('end_enc',function(){
 ________________________________________________________________________________
 ##CANCELAR LA ENCUESTA
 
-Evento de cancelación de la encuesta se da al presionar el boton “cancel” del widget.
-//mediante este evento puede usarse para remover el widget al ser cancelada la encuesta
+Evento de cancelación 'cancel_enc' de la encuesta se da al presionar el boton “cancel” del widget.
+mediante este evento puede usarse para remover el widget al ser cancelada la encuesta
 ```
 Ti.App.addEventListener('cancel_enc',function(){
 	if(Epop!=null){

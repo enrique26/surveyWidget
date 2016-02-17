@@ -15,7 +15,8 @@ var args = arguments[0] || {};
 			var row=Ti.UI.createTableViewRow({
 				backgroundColor:'white',
 				height:45,
-				leftImage:WPATH('/imagenes/radio-off.png')
+				leftImage:WPATH('/imagenes/radio-off.png'),
+				respuesta:respOp[_i]
 			});
 			
 			var labelRow=Ti.UI.createLabel({
@@ -57,7 +58,7 @@ var args = arguments[0] || {};
 		tablaCont();
 		$.respuestas.updateRow(e.index,data);
 		Ti.API.info('EROWCHILDREN:'+JSON.stringify(e.row.children));
-		respuestaElegida=e.row.title;
+		respuestaElegida=e.source.respuesta;
 		Ti.API.info('respuesta elegida '+respuestaElegida);
 		Alloy.Globals.respuestasUsuario[args.indicePregunta]=respuestaElegida;
 		Ti.API.info('alloy: '+JSON.stringify(Alloy.Globals.respuestasUsuario));

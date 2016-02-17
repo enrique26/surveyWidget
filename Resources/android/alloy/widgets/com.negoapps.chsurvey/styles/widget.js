@@ -6,12 +6,12 @@ function WPATH(s) {
 
 module.exports = [ {
     isClass: true,
-    priority: 10000.0009,
+    priority: 10000.0008,
     key: "container",
     style: {}
 }, {
     isId: true,
-    priority: 100000.001,
+    priority: 100000.0009,
     key: "tituloEncuesta",
     style: {
         font: {
@@ -20,7 +20,7 @@ module.exports = [ {
     }
 }, {
     isId: true,
-    priority: 100000.0011,
+    priority: 100000.001,
     key: "cancelaE",
     style: {
         font: {

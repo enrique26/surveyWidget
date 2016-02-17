@@ -129,7 +129,11 @@ function Controller() {
         Epop = Ti.UI.createView({
             backgroundColor: "black"
         });
-        widget = Alloy.createWidget("com.negoapps.chsurvey", "widget", {});
+        widget = Alloy.createWidget("com.negoapps.chsurvey", "widget", {
+            colorHead: "#225522",
+            colorBackProgress: "#225522",
+            btBackColor: "#225522"
+        });
         widget.abrirEncuesta(jsonV);
         widget.alertaPers("Encuesta", "Termino la encuesta", "Cerrar");
         Epop.add(widget.getView());

@@ -98,8 +98,8 @@ function Controller() {
         id: "tituloEncuesta",
         color: "white",
         left: "0",
-        width: "80%",
-        textAlign: "center"
+        width: "79%",
+        textAlign: "left"
     });
     $.__views.headSurvey.add($.__views.tituloEncuesta);
     $.__views.cancelaE = Ti.UI.createLabel({
@@ -122,7 +122,8 @@ function Controller() {
     $.__views.avanza = Ti.UI.createButton({
         title: "Siguiente",
         id: "avanza",
-        height: "10%",
+        top: "1%",
+        height: "8%",
         color: "white",
         backgroundColor: "#44a922",
         borderRadius: "6",
@@ -131,8 +132,9 @@ function Controller() {
     $.__views.contentSurvey.add($.__views.avanza);
     $.__views.progresoSurvey = Ti.UI.createView({
         id: "progresoSurvey",
+        top: "1%",
         height: "10%",
-        backgroundColor: "green"
+        backgroundColor: "#44a922"
     });
     $.__views.contentSurvey.add($.__views.progresoSurvey);
     $.__views.porcentaje = Ti.UI.createLabel({
@@ -146,7 +148,10 @@ function Controller() {
     $.__views.progresoSurvey.add($.__views.porcentaje);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    arguments[0] || {};
+    var args = arguments[0] || {};
+    $.headSurvey.backgroundColor = args.colorHead || "#44a922";
+    $.progresoSurvey.backgroundColor = args.colorBackProgress || "#44a922";
+    $.avanza.backgroundColor = args.btBackColor || "#44a922";
     Alloy.Globals.respuestasUsuario = [];
     var jsonV = [];
     var indexEncuesta = 0;

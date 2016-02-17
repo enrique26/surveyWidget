@@ -19,12 +19,21 @@ function Controller() {
         var dataT = [];
         for (var _i = 0; _i < respOp.length; _i++) {
             var row = Ti.UI.createTableViewRow({
-                title: respOp[_i],
                 backgroundColor: "white",
-                color: "black",
                 height: 45,
                 leftImage: WPATH("/imagenes/radio-off.png")
             });
+            var labelRow = Ti.UI.createLabel({
+                text: respOp[_i],
+                color: "black",
+                font: {
+                    fontSize: "16dp"
+                },
+                left: 80,
+                right: 0,
+                touchEnabled: false
+            });
+            row.add(labelRow);
             dataT.push(row);
         }
         $.respuestas.data = dataT;
@@ -81,15 +90,26 @@ function Controller() {
     var respOp = args.opciones;
     tablaCont();
     $.respuestas.addEventListener("click", function(e) {
-        var data = {
-            title: respOp[e.index],
-            backgroundColor: "blue",
+        Ti.API.info("erowlabel:" + JSON.stringify(e.row.children));
+        var labelRow = Ti.UI.createLabel({
+            text: respOp[e.index],
             color: "white",
+            font: {
+                fontSize: "16dp"
+            },
+            left: 80,
+            right: 0,
+            touchEnabled: false
+        });
+        var data = Ti.UI.createTableViewRow({
+            backgroundColor: "blue",
             height: 45,
             leftImage: WPATH("/imagenes/radio-on.png")
-        };
+        });
+        data.add(labelRow);
         tablaCont();
         $.respuestas.updateRow(e.index, data);
+        Ti.API.info("EROWCHILDREN:" + JSON.stringify(e.row.children));
         respuestaElegida = e.row.title;
         Ti.API.info("respuesta elegida " + respuestaElegida);
         Alloy.Globals.respuestasUsuario[args.indicePregunta] = respuestaElegida;
