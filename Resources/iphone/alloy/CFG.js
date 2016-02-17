@@ -1,0 +1,1 @@
+module.exports={"dependencies":{"com.negoapps.chsurvey":"1.0"}};

@@ -1,0 +1,17 @@
+<Alloy>
+	<!-- <View class="container"> -->
+		<View id="contentSurvey" layout="vertical" width="90%" height="90%" backgroundColor="white">
+			<View id="headSurvey" backgroundColor="#44a922" height="15%">
+				<Label id="tituloEncuesta" color="white" left="0" width="79%" textAlign="left">titulo encuesta</Label>
+				<Label id="cancelaE" color="white" right="5" width="20%" text="Cancel" textAlign="center"></Label>
+			</View>
+			<View id="cuerpoSurvey" height="65%">
+				
+			</View>
+			<Button id="avanza" top="1%" height="8%" color="white" backgroundColor="#44a922" borderRadius="6" width="200">Siguiente</Button>
+			<View id="progresoSurvey" top="1%" height="10%" backgroundColor="#44a922">
+				<Label id="porcentaje" color="black" left="0" right="0" textAlign="center">0%</Label>	
+			</View>
+		</View>
+	<!-- </View> -->
+</Alloy>

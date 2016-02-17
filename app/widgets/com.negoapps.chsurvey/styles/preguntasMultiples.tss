@@ -1,0 +1,10 @@
+
+".container" : {
+  // backgroundColor:'gray'
+}
+
+"#tPregunta":{
+	font:{
+		fontSize:'14dp'
+	}
+}

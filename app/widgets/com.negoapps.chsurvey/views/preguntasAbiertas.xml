@@ -1,0 +1,8 @@
+<Alloy>
+	<ScrollView class="container" layout="vertical" scrollType="vertical">
+		<View backgroundColor="white" height="Titanium.UI.SIZE" top="0">
+			<Label id="tPregunta" top="0" left="5" right="5" color="black"></Label>
+		</View>
+		<TextField id="respuestaAb" width="90%" top="50" backgroundColor="white" color="black" borderColor="black" hintTextColor="gray" hintText="Su respuesta"></TextField>
+	</ScrollView>
+</Alloy>

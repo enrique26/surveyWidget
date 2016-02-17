@@ -1,0 +1,16 @@
+
+".container" : {
+  // backgroundColor:'gray'
+}
+
+"#tPregunta":{
+	font:{
+		fontSize:'14dp'
+	}
+}
+
+"#respuestaAb":{
+	font:{
+		fontSize:'14dp'
+	}
+}

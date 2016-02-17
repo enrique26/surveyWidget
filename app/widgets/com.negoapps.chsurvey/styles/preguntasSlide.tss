@@ -1,0 +1,10 @@
+
+".container" : {
+  
+}
+
+"#tPregunta":{
+	font:{
+		fontSize:'14dp'
+	}
+}

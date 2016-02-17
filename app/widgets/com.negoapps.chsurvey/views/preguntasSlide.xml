@@ -1,0 +1,12 @@
+<Alloy>
+	<ScrollView class="container" layout="vertical" scrollType="vertical">
+		<View backgroundColor="white" height="Titanium.UI.SIZE" top="0">
+			<Label id="tPregunta" top="0" left="5" right="5" color="black"></Label>
+		</View>
+		<View id="vistaSlide" layout="vertical" bottom="0" height="Titanium.UI.SIZE">
+			<Label id="contadorV" left="5" right="5" top="50" textAlign="center" color="black" backgroundColor="white" text="0"></Label>
+			<View id="sliderCont" height="Titanium.UI.SIZE" width="90%"></View>
+			<View id="etiquetasV" height="Titanium.UI.SIZE" width="90%"></View>
+		</View>
+	</ScrollView>
+</Alloy>

@@ -1,0 +1,8 @@
+<Alloy>
+	<View class="container">
+		<ScrollView backgroundColor="white" height="25%" top="0" scrollType="vertical">
+			<Label id="tPregunta" top="0" left="5" right="5" color="black"></Label>
+		</ScrollView>
+		<TableView id="respuestas" top="25%" height="75%" left="0" width="90%" separatorColor="transparent"></TableView>
+	</View>
+</Alloy>

@@ -1,0 +1,15 @@
+".container" : {
+  // backgroundColor:'white'
+}
+
+"#tituloEncuesta":{
+	font:{
+		fontSize:'14dp'
+	}
+}
+
+"#cancelaE":{
+	font:{
+		fontSize:'14dp'
+	}
+}
