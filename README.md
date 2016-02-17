@@ -6,15 +6,15 @@ Este widget permite añadir una vista para mostar encuestas dentro de la aplicac
 Permite cargar encuestas mediate formato json.
 Permitiendo visualizar 3 tipos de preguntas : Abiertas, opcion multiple, y rangos.
 
-//Tipos de preguntas:
-caracter abierto - mediante textfield ('open')
-caracter multiple- varias opciones ('mult')
-caracter rango- uso de slider ('slider')
+Tipos de preguntas:
+-caracter abierto - mediante textfield ('open')
+-caracter multiple- varias opciones ('mult')
+-caracter rango- uso de slider ('slider')
 
-//Estructura del json para la encuesta:
-//ver ejemplo (app/controllers/widget.js);
-json= [{
-  "tituloEnc":"Mi encuesta", //titulo de la encuesta
+Estructura del json para la encuesta:
+(ver ejemplo (app/controllers/widget.js)).
+```
+json=[{"tituloEnc":"Mi encuesta", //titulo de la encuesta
   "descripcionEnc":"descripcion corta para mi encuesta",//descricpion dela encuesta
      "preguntas":[{//contenido o preguntas de la encuesta
           "preguntaT":"¿cuales son los componentes basicos de esta encuesta?",//tutulo de la pregunta
@@ -23,8 +23,8 @@ json= [{
           "limiteSlide":0,//limite para preguntas de rango
           "etiquetasSlide":[] // etiquetas informativas para el slider de pregunta de rango
 	 }]
-}]
-
+}];
+```
 ____________________________________________________________________________
 //USO del WIDGET
 
@@ -32,26 +32,28 @@ Copiar la carpeta Widgets, en la carpeta "app" del proyecto o copiar el contenid
 en la carpeta widgets del proyecto si esta ya esta creada.
 
 Modificar el archivo config.json del proyecto y añadir el widget al apartado "dependencies"
+```
 "dependencies": {
 		"com.negoapps.chsurvey": "1.0"
 	}
-
+```
 ______________________________________________________________________________	
 //EJEMPLO DE USO
 
-//Probar widget, el uso de este widget esta pensado para mostar la encuesta como si se tratase
-//de un popup , enmbedido en un view de la ventana actual
-//(ver ejemplo en app/controllers/widget.js)
+Probar widget, el uso de este widget esta pensado para mostar la encuesta como si se tratase
+de un popup , enmbedido en un view de la ventana actual
+(ver ejemplo en app/controllers/widget.js).
 
-//Definir variable que contendra el controlador del widget 
+```
+Definir variable que contendra el controlador del widget 
 var widget=null;
 //definir variable para crar la vista que mostrara el widget
 var Epop=null;
 
 //mostrar la encuesta despues de un evento determinado
-$.button.addEventListener('click',function(){
-	
-	//crea la vista para el widget
+
+$.button.addEventListener('click',function()
+{	//crea la vista para el widget
 	Epop=Ti.UI.createView({
 		backgroundColor:'black',
 	});
@@ -83,15 +85,20 @@ $.button.addEventListener('click',function(){
 	Epop.add(widget.getView());
 	
 	//añadir la vista creada con el widget agregado
-	$.index.add(Epop);
-	
-});
-
+	$.index.add(Epop);});
+}
+```
 _____________________________________________________________________________
 //CONSULTAR RESULTADOS DE LA ENCUESTA
 el widget almacena los resultado mediante una variable global 
 para consultar los resultados de las respuestas se debe hacer referencia a:
+```
 Alloy.Globals.respuestasUsuario;
+```
+Ejemplo:
+```
+Ti.API.info(Alloy.Globals.respuestasUsuario);
+```
 esta variable almacena un array con las respuestas del usuario según la longitud de la encuesta
 
 ______________________________________________________________________________
@@ -101,7 +108,7 @@ ______________________________________________________________________________
 //para remover el widget de la encuesta y obtener las repuestas
 //el widget usa el el evento 'end_enc' para indicar que la encuesta se termino
 
-
+```
 Ti.App.addEventListener('end_enc',function(){
 //si nuestra vista contenedora es diferente de nulo 
 //se eliminan los elementos del widget y se remueve la vista que lo contenía
@@ -114,13 +121,13 @@ Ti.App.addEventListener('end_enc',function(){
 		Ti.API.info(JSON.stringify(Alloy.Globals.respuestasUsuario));
 	}
 });
-
+```
 ________________________________________________________________________________
-//CANCELAR LA ENCUETSA
+//CANCELAR LA ENCUESTA
 
 //evento de cancelación de la encuesta se da al presionar el boton “cancel” del widget.
 //mediante este evento puede usarse para remover el widget al ser cancelada la encuesta
-
+```
 Ti.App.addEventListener('cancel_enc',function(){
 	if(Epop!=null){
 		//remueve la vista que contiene el widget
@@ -130,3 +137,4 @@ Ti.App.addEventListener('cancel_enc',function(){
 		Epop=null;
 	}
 });
+```
