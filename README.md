@@ -24,7 +24,7 @@ json=[{"tituloEnc":"Mi encuesta", //titulo de la encuesta
           "tipoP":"mult",//tipo de pregunta
           "opcionesP":['opcion a','opcion b','opcion c','opcion d'],//opciones para pregunta de opcion multiple
           "limiteSlide":0,//limite para preguntas de rango
-          "etiquetasSlide":[] // etiquetas informativas para el slider de pregunta de rango
+          "etiquetasSlide":["left label","center label","right label"] // etiquetas informativas para el slider de pregunta de rango
 	 }]
 }];
 ```
